@@ -15,3 +15,5 @@ export type gridType = tileType[][];
 export type algorithmType = "BFS" | "DFS" | "Djikstras";
 
 export type mazeType = "NONE" | "Binary_Tree" | "Recursive_Division";
+
+export type speedType = 2 | 1 | 0.5;
