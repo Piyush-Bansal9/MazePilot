@@ -16,4 +16,9 @@ export type algorithmType = "BFS" | "DFS" | "Djikstras";
 
 export type mazeType = "NONE" | "Binary_Tree" | "Recursive_Division";
 
+export interface mazeSelectType {
+    name: string;
+    value: mazeType;
+}
+
 export type speedType = 2 | 1 | 0.5;

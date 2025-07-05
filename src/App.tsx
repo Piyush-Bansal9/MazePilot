@@ -4,6 +4,7 @@ import { PathFindingProvider } from './context/PathFindingContext'
 import { TileContextProvider } from './context/TileContext'
 import { SpeedContextProvider } from './context/SpeedContext'
 import { Grid } from './components/Grid'
+import { Nav } from './components/Nav'
 
 function App() {
   const isVisualisationRunning = useRef(false);
@@ -12,7 +13,8 @@ function App() {
     <PathFindingProvider>
       <TileContextProvider>
         <SpeedContextProvider>
-          <div className='h-screen w-screen flex flex-col'>
+          <div className='h-screen w-screen flex flex-col items-center'>
+            <Nav/>
             <Grid isVisualisationRunning = {isVisualisationRunning}/>
           </div>
         </SpeedContextProvider>
