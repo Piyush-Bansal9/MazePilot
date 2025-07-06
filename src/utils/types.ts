@@ -22,3 +22,8 @@ export interface mazeSelectType {
 }
 
 export type speedType = 2 | 1 | 0.5;
+
+export interface speedSelectType {
+    name: string;
+    value: speedType;
+}

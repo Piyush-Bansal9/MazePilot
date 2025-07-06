@@ -1,3 +1,4 @@
+import { binaryTree } from "../lib/algorithms/maze/binaryTree";
 import type { gridType, mazeType, speedType, tileType } from "./types"
 
 export const runMazeAlgorithm = async ({
@@ -16,6 +17,6 @@ export const runMazeAlgorithm = async ({
     setIsDisabled: (disabled: boolean) => void;
 }) => {
     if(maze === "Binary_Tree") {
-        await BinaryTree(grid, startTile, endTile, speed, setIsDisabled);
+        await binaryTree(grid, startTile, endTile, setIsDisabled, speed);
     }
 }
