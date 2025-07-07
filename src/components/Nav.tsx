@@ -8,6 +8,7 @@ import { Select } from "./Select";
 import { useSpeed } from "../hooks/useSpeed";
 import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
 import { PlayButton } from "./Play";
+import { runPathFindingAlgorithm } from "../utils/runPathFindingAlgorithm";
 
 export function Nav() {
     const {maze, setMaze, grid, setGrid, setIsGraphVisualised, algorithm, setAlgorithm, isGraphVisualised} = usePathFinding();
@@ -43,6 +44,11 @@ export function Nav() {
             resetGrid({grid: grid.slice(), startTile, endTile});
             return;
         }
+        const {traversedTiles, path} = runPathFindingAlgorithm({algorithm, startTile, endTile, grid});
+
+        console.log('traversed', traversedTiles);
+        console.log('path', path);
+        
         
     }
 

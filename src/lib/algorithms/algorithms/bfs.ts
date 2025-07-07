@@ -19,10 +19,20 @@ export const bfs = (grid: gridType, startTile: tileType, endTile: tileType) => {
         const neighbors = getUntraversedNeighbors(grid, tile);
         neighbors.map((neighbor) => {
             const neiTile = grid[neighbor.row][neighbor.col];
-            neiTile.distance = 0;
+            neiTile.distance = tile.distance + 1;
             neiTile.isTraversed = true;
+            neiTile.parent = tile;
             q.push(neiTile);
         })
-        
     }
+
+    const path = [];
+    let tile = grid[endTile.row][endTile.col];
+    while(tile != null && tile.parent != null) {
+        tile.isPath = true;
+        path.unshift(tile);
+        tile = tile.parent;
+    }
+    if(isEqual(tile, baseTile)) path.unshift(tile);
+    return {traversedTiles, path};
 }
