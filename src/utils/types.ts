@@ -27,3 +27,8 @@ export interface speedSelectType {
     name: string;
     value: speedType;
 }
+
+export interface algorithmSelectType {
+    name: string;
+    value: algorithmType;
+}

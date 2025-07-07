@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { usePathFinding } from "../hooks/usePathFinding";
 import { useTile } from "../hooks/useTile";
-import { MAZES } from "../utils/constants";
-import { resetGrid } from "../utils/helpers";
-import type { mazeType } from "../utils/types";
+import { MAZES, PATHFINDING_ALGORITHMS } from "../utils/constants";
+import { createNewGrid, resetGrid } from "../utils/helpers";
+import type { algorithmType, mazeType } from "../utils/types";
 import { Select } from "./Select";
 import { useSpeed } from "../hooks/useSpeed";
 import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
+import { PlayButton } from "./Play";
 
 export function Nav() {
-    const {maze, setMaze, grid, setGrid, setIsGraphVisualised} = usePathFinding();
+    const {maze, setMaze, grid, setGrid, setIsGraphVisualised, algorithm, setAlgorithm, isGraphVisualised} = usePathFinding();
     const {startTile, endTile} = useTile();
     const [isDisabled, setIsDisabled] = useState(false);
     const {speed} = useSpeed();
@@ -36,6 +37,15 @@ export function Nav() {
         setIsGraphVisualised(false);
     }
 
+    const handleRunVisualizer = () => {
+        if(isGraphVisualised) {
+            setIsGraphVisualised(false);
+            resetGrid({grid: grid.slice(), startTile, endTile});
+            return;
+        }
+        
+    }
+
     return (
     <div className="flex items-center justify-center min-h-[4.5rem] border-b shadow-gray-600 sm:px-5 px-0">
         <div className="flex items-center lg:justify-between justify-center w-full sm:w-[52rem]">
@@ -50,6 +60,19 @@ export function Nav() {
                     onChange={(e) => {
                         handleGenerateMaze(e.target.value as mazeType)
                     }}
+                />
+                <Select
+                    label="Algorithms"
+                    value={algorithm}
+                    options={PATHFINDING_ALGORITHMS}
+                    onChange={(e) => {
+                        setAlgorithm(e.target.value as algorithmType)
+                    }}
+                />
+                <PlayButton
+                    isDisabled = {isDisabled}
+                    isGraphVisualized = {isGraphVisualised}
+                    handlerRunVisualizer={handleRunVisualizer}
                 />
             </div>
         </div>
