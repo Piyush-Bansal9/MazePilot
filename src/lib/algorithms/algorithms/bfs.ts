@@ -28,7 +28,7 @@ export const bfs = (grid: gridType, startTile: tileType, endTile: tileType) => {
 
     const path = [];
     let tile = grid[endTile.row][endTile.col];
-    while(tile != null && tile.parent != null) {
+    while(tile !== null && tile.parent != null) {
         tile.isPath = true;
         path.unshift(tile);
         tile = tile.parent;

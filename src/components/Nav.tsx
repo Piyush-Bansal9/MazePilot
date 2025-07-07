@@ -3,7 +3,7 @@ import { usePathFinding } from "../hooks/usePathFinding";
 import { useTile } from "../hooks/useTile";
 import { EXTENDED_SLEEP_TIME, MAZES, PATHFINDING_ALGORITHMS, SLEEP_TIME, SPEEDS } from "../utils/constants";
 import { createNewGrid, resetGrid } from "../utils/helpers";
-import type { algorithmType, mazeType } from "../utils/types";
+import type { algorithmType, mazeType, speedType } from "../utils/types";
 import { Select } from "./Select";
 import { useSpeed } from "../hooks/useSpeed";
 import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
@@ -17,7 +17,7 @@ export function Nav({isVisualisationRunning} : {
     const {maze, setMaze, grid, setGrid, setIsGraphVisualised, algorithm, setAlgorithm, isGraphVisualised} = usePathFinding();
     const {startTile, endTile} = useTile();
     const [isDisabled, setIsDisabled] = useState(false);
-    const {speed} = useSpeed();
+    const {speed, setSpeed} = useSpeed();
 
     const handleGenerateMaze = (maze: mazeType) => {
         if(maze === "NONE") {
@@ -82,6 +82,15 @@ export function Nav({isVisualisationRunning} : {
                     options={PATHFINDING_ALGORITHMS}
                     onChange={(e) => {
                         setAlgorithm(e.target.value as algorithmType)
+                    }}
+                />
+                <Select
+                    label="Speed"
+                    value={speed}
+                    options={SPEEDS}
+                    isDisabled={isDisabled}
+                    onChange={(e) => {
+                        setSpeed(parseInt(e.target.value) as speedType);
                     }}
                 />
                 <PlayButton

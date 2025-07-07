@@ -42,9 +42,9 @@ export const MAZES: mazeSelectType[] = [
 ];
 
 export const SPEEDS: speedSelectType[] = [
-    { name: "Slow", value: 0.5},
+    { name: "Slow", value: 2},
     { name: "Medium", value: 1},
-    { name: "Fast", value: 2},
+    { name: "Fast", value: 0.5},
 ]
 
 export const PATHFINDING_ALGORITHMS: algorithmSelectType[] = [
