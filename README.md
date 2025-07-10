@@ -5,7 +5,7 @@ An interactive and animated pathfinding visualizer built with **React**, **TypeS
 ---
 
 ### 🖥️ Main Visualizer View
-![Pathfinding Visualizer Screenshot](./assets/screenshot.png)
+![Pathfinding Visualizer Screenshot](./src/assets/screenshot.png)
 
 ---
 
