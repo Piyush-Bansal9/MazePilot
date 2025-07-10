@@ -1,69 +1,43 @@
-# React + TypeScript + Vite
+# 🧭 Maze-Pilot | Pathfinding Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive and animated pathfinding visualizer built with **React**, **TypeScript**, and **Tailwind CSS**. Supports multiple maze generation and pathfinding algorithms with customizable speed and manual grid editing.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🖥️ Main Visualizer View
+![Pathfinding Visualizer Screenshot](./src/assets/screenshot.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🎯 **Algorithms**: Dijkstra, Breadth-First Search (BFS), and Depth-First Search (DFS)
+- 🧱 **Maze Generators**: Binary Tree, Recursive Division, or Manual Drawing
+- 🖱️ **Interactive Grid**: Click-and-drag wall placement with optimized performance
+- ⏱️ **Speed Control**: Toggle between Slow, Medium, and Fast animation speeds
+- ⚛️ **Global State**: Modular state using React Context API and custom hooks
+- 🎨 **Responsive Design**: Fully styled with Tailwind CSS, accessible and mobile-friendly UI
+- 🛠️ **Strong Typing**: TypeScript interfaces for tiles, grid, algorithms, and animation
+- 📦 **Code Quality**: Scalable structure with separation of concerns and reusable components
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Getting Started
+
+Follow these steps to run the project locally:
+
+
+```bash
+
+### 1. Clone the Repository
+git clone https://github.com/yourusername/pathfinding-visualizer.git
+cd pathfinding-visualizer
+
+###2. Install Dependencies
+npm install
+
+###3. Run the Development Server
+npm run dev
+The app will be available at: http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
