@@ -1,4 +1,4 @@
-# 🧭 Pathfinding Visualizer
+# 🧭 Maze-Pilot | Pathfinding Visualizer
 
 An interactive and animated pathfinding visualizer built with **React**, **TypeScript**, and **Tailwind CSS**. Supports multiple maze generation and pathfinding algorithms with customizable speed and manual grid editing.
 
@@ -6,7 +6,7 @@ An interactive and animated pathfinding visualizer built with **React**, **TypeS
 
 ## ✨ Features
 
-- 🎯 **Algorithms**: Dijkstra, A*, Breadth-First Search (BFS), and Depth-First Search (DFS)
+- 🎯 **Algorithms**: Dijkstra, Breadth-First Search (BFS), and Depth-First Search (DFS)
 - 🧱 **Maze Generators**: Binary Tree, Recursive Division, or Manual Drawing
 - 🖱️ **Interactive Grid**: Click-and-drag wall placement with optimized performance
 - ⏱️ **Speed Control**: Toggle between Slow, Medium, and Fast animation speeds
@@ -27,3 +27,28 @@ Follow these steps to run the project locally:
 ### 1. Clone the Repository
 git clone https://github.com/yourusername/pathfinding-visualizer.git
 cd pathfinding-visualizer
+
+###2. Install Dependencies
+npm install
+
+###3. Run the Development Server
+npm run dev
+The app will be available at: http://localhost:5173
+```
+
+###📁 Project Structure
+
+pathfinding-visualizer/
+├── src/
+│   ├── components/       # UI components like Grid, Navbar, Tile
+│   ├── context/          # React Context Providers (Pathfinding, Speed, Tile)
+│   ├── hooks/            # Custom hooks for visualization and grid logic
+│   ├── algorithms/       # Pathfinding and maze generation algorithms
+│   ├── types/            # TypeScript interfaces and enums
+│   ├── utils/            # Animation and utility functions
+│   └── App.tsx           # Main app component
+├── public/
+├── tailwind.config.js
+├── index.html
+└── vite.config.ts
+
