@@ -4,6 +4,11 @@ An interactive and animated pathfinding visualizer built with **React**, **TypeS
 
 ---
 
+### 🖥️ Main Visualizer View
+![Pathfinding Visualizer Screenshot](./assets/screenshot.png)
+
+---
+
 ## ✨ Features
 
 - 🎯 **Algorithms**: Dijkstra, Breadth-First Search (BFS), and Depth-First Search (DFS)
@@ -35,20 +40,4 @@ npm install
 npm run dev
 The app will be available at: http://localhost:5173
 ```
-
-###📁 Project Structure
-
-pathfinding-visualizer/
-├── src/
-│   ├── components/       # UI components like Grid, Navbar, Tile
-│   ├── context/          # React Context Providers (Pathfinding, Speed, Tile)
-│   ├── hooks/            # Custom hooks for visualization and grid logic
-│   ├── algorithms/       # Pathfinding and maze generation algorithms
-│   ├── types/            # TypeScript interfaces and enums
-│   ├── utils/            # Animation and utility functions
-│   └── App.tsx           # Main app component
-├── public/
-├── tailwind.config.js
-├── index.html
-└── vite.config.ts
 
