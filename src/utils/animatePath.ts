@@ -9,23 +9,31 @@ export const animatePath = (
     endTile: tileType,
     speed: speedType
 ) => {
+    const speedMultiplier = SPEEDS.find((s) => s.value === speed)!.value;
+
+    // Animate traversed tiles
     for(let i = 0; i < traversedTiles.length; i++) {
         setTimeout(() => {
             const tile = traversedTiles[i];
             if(!isEqual(startTile, tile) && !isEqual(tile, endTile)) {
                 document.getElementById(`${tile.row}-${tile.col}`)!.className = `${TRAVERSED_TILE_STYLE} animate-traversed`;
             }
-        }, SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value)
+        }, SLEEP_TIME * i * speedMultiplier);
     }
+
+    // Wait for the last traversed animation to end + buffer before animating path
+    const totalTraversalTime = SLEEP_TIME * traversedTiles.length * speedMultiplier;
+    const bufferTime = 100; // milliseconds to ensure no overlap
 
     setTimeout(() => {
         for(let i = 0; i < path.length; i++) {
             setTimeout(() => {
                 const tile = path[i];
                 if(!isEqual(tile, startTile) && !isEqual(tile, endTile)) {
+                    
                     document.getElementById(`${tile.row}-${tile.col}`)!.className = `${PATH_TILE_STYLE} animate-path`;
                 }
-            }, EXTENDED_SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value)
+            }, EXTENDED_SLEEP_TIME * i * speedMultiplier);
         }
-    }, SLEEP_TIME * traversedTiles.length * SPEEDS.find((s) => s.value === speed)!.value)
+    }, totalTraversalTime + bufferTime);
 }
