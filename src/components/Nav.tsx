@@ -2,7 +2,7 @@ import { useState, type MutableRefObject } from "react";
 import { usePathFinding } from "../hooks/usePathFinding";
 import { useTile } from "../hooks/useTile";
 import { EXTENDED_SLEEP_TIME, MAZES, PATHFINDING_ALGORITHMS, SLEEP_TIME, SPEEDS } from "../utils/constants";
-import { createNewGrid, resetGrid } from "../utils/helpers";
+import { resetGrid } from "../utils/helpers";
 import type { algorithmType, mazeType, speedType } from "../utils/types";
 import { Select } from "./Select";
 import { useSpeed } from "../hooks/useSpeed";
